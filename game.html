@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mario Clone</title>
+    </head>
+    <body>
+        <canvas id="game" class = "gameCanvas" width="1366" height="768"></canvas>
+        <script type="text/javascript" src="engine/constants.js"></script>
+        <script type="text/javascript" src="engine/game.js"></script>
+        <script type="text/javascript" src="engine/entities/entities.js"></script>
+        <script>
+            var game = new Game(document.getElementById('game').getContext('2d'), '#049cd8');
+            game.addGameEntity(new AnimatedTexturedKinematicEntity([0, WORLDSIZE[1] - 64], 64, 64, false, entityTypes.FLOOR, {DEFAULTSTATE:'DEFAULTSTATE'}, {DEFAULTSTATE:'../SUPERMARIO/sprites/box-ground.png'}, new MovementState(0,0,0,0)));
+            game.addGameEntity(new AnimatedTexturedKinematicEntity([65, WORLDSIZE[1] - 64], 64, 64, false, entityTypes.FLOOR, {DEFAULTSTATE: 'DEFAULTSTATE'}, {DEFAULTSTATE:'../SUPERMARIO/sprites/box-ground.png'}, new MovementState(0,0,0,0)));
+            game.addGameEntity(new AnimatedTexturedKinematicEntity([129, WORLDSIZE[1] - 64], 64, 64, false, entityTypes.FLOOR, {DEFAULTSTATE: 'DEFAULTSTATE'}, {DEFAULTSTATE:'../SUPERMARIO/sprites/box-ground.png'}, new MovementState(0,0,0,0)));
+            game.addGameEntity(new AnimatedTexturedKinematicEntity([193, WORLDSIZE[1] - 64], 64, 64, false, entityTypes.FLOOR, {DEFAULTSTATE: 'DEFAULTSTATE'}, {DEFAULTSTATE:'../SUPERMARIO/sprites/box-ground.png'}, new MovementState(0,0,0,0)));
+            game.addGameEntity(new Goomba([0, WORLDSIZE[1] - 300], 96, 96, new MovementState(1,0,1,0)));
+            document.body.addEventListener('click', () => game.playLevelSong('../SUPERMARIO/mario.ogg'), true); 
+        </script>
+    </body>
+</html>
